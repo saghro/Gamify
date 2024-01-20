@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import '../data.dart';
 
-class home_page extends StatelessWidget {
-  const home_page({super.key});
+class home_page extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _HomePageState();
+  }
+}
 
+class _HomePageState extends State<home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('yuba')),
+      body: Stack(
+        children: <Widget>[],
+      ),
     );
   }
+}
+Widget _featureGamesWidget(){
+  return SizedBox(height: , width: , child: ,);
 }
