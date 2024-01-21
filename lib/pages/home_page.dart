@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../data.dart';
 
-class home_page extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
   }
 }
 
-class _HomePageState extends State<home_page> {
+class _HomePageState extends State<HomePage> {
   var _deviceHeight;
   var _deviceWidth;
 
@@ -28,7 +28,6 @@ class _HomePageState extends State<home_page> {
       body: Stack(
         children: <Widget>[
           _featureGamesWidget(),
-          // Add other widgets to the Stack as needed
         ],
       ),
     );
@@ -38,9 +37,19 @@ class _HomePageState extends State<home_page> {
     return SizedBox(
       height: _deviceHeight * 0.50,
       width: _deviceWidth,
-      child: Container(
-        // Add content for the _featureGamesWidget here
-        child: Text("Feature Games Widget"),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: featuredGames.map((game) {
+          return Container(
+            width: _deviceWidth,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(game.coverImage.url),
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
